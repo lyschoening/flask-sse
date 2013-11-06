@@ -63,4 +63,4 @@ def stream():
 
 def send_event(event_name, data, channel='sse'):
     conn = ConnectionPool.get_connection()
-    conn.publish(channel, json.dumps([event_name, data]))
+    conn.publish(channel, json.dumps([event_name, json.dumps(data)]))
